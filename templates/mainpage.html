@@ -1,0 +1,49 @@
+<!doctype html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<title> UCLA VC_FUND </title>
+</head>
+
+
+<body>
+	<div class="page-header" align = "center">
+		<h1> UCLA Affiliated Users </h1>
+	</div>
+
+	<div class = "container">
+		{% for u in usersList %}
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"> {{ u.name }}</h3>
+			</div>
+			<div class="panel-body">
+				<div class = "row">
+					<div class = "col-md-6">
+						<tr> <td> <img src = "{{ u.image }}" </></td></tr>
+					</div>
+
+					<div class = "col-md-6">
+						<table id = "users">
+							<tr><td> <strong>Location: </strong>{{u.location}}</td></tr>
+							<tr><td><strong> What I've Built: </strong> {{u.what_ive_built}}</td></tr>
+							{% if u.bio != "" %}
+							<tr><td><strong> Bio: </strong> {{u.bio}} <tr></td>
+							{% endif %}
+								{%if u.investor == True%}
+							<tr><td><strong> I am an investor! </strong> </td></tr>
+							{% endif %}
+						</table>
+
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+
+	{% endfor %}
+</div>
+</body>
